@@ -1,8 +1,11 @@
 //import { useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import useStyles from './Admin.style';
 import NavMenu from '../menu/NavMenu';
 import Logo from '../menu/Logo';
 import User from '../menu/User';
+import Perfil from './perfil/Perfil';
+import Wellcome from './wellcome/Wellcome';
 import perfil from '../../../assets/icons/perfilMenu.svg';
 import users from '../../../assets/icons/usersMenu.svg';
 import secretaries from '../../../assets/icons/secretaryMenu.svg';
@@ -13,6 +16,7 @@ import students from '../../../assets/icons/studentsMenu.svg';
 import backups from '../../../assets/icons/backupMenu.svg';
 import closeSession from '../../../assets/icons/closeSessionMenu.svg';
 
+
 const Admin = () => {
    const classes = useStyles();
 
@@ -21,26 +25,32 @@ const Admin = () => {
         {
           name: 'Perfil',
           image: perfil,
+          path: '/perfil'
         },
         {
             name: 'Usuarios',
             image: users,
+            path: '/users'
         },
         {
             name: 'Secretarios',
             image: secretaries,
+            path: '/secretaries'
         },
         {
             name: 'Docentes',
             image: teachers,
+            path : '/teachers',
             suboptions: [
                 {
                     name: 'Lista',
-                    image: list
+                    image: list,
+                    path: '/list'
                 },
                 {
                     name: 'Evaluación',
-                    image: evaluation
+                    image: evaluation,
+                    path: '/evaluation'
                 },
             ]
         },
@@ -51,6 +61,7 @@ const Admin = () => {
         {
             name: 'Estudiantes',
             image: students,
+            path: '/students'
         }
     ];
     
@@ -58,17 +69,20 @@ const Admin = () => {
         {
             name: 'Backups',
             image: backups,
+            path: '/backups'
         },
         {
             name: 'Cerrar Sesión',
             image: closeSession,
+            path : '/closeSession'
         }
     ];
 
 
     
     return (
-        <div className={classes.container}>
+
+        <div>
             <div className={classes.top}>
                 <Logo/>
                 <User/>
@@ -80,8 +94,11 @@ const Admin = () => {
                 <hr className={classes.line}/>
                 <NavMenu  options={options3} />
             </div>
-            <div className={classes.container}>
-                
+            <div className={classes.content}>
+                <Routes>
+                    <Route path='/wellcome' element={<Wellcome />}/>
+                    <Route path='/perfil' element={<Perfil />}/>
+                </Routes>
             </div>
         </div>
         

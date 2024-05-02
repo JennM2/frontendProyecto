@@ -65,39 +65,7 @@ const useStyles = makeStyles((theme)=>({
         marginTop: "1vh",
         marginBottom: "2vh",
     },
-    user:{
-        width:"20vw",
-        height:"209px",
-        display:"flex",
-        flexDirection:"column",
-        fontSize:"20px",
-        justifyContent:"center",
-        alignItems:"center",
-    },
-    containerInputs:{
-        position:"relative",
-        width:"100%",
-        marginTop:"3vh",
-    },
 
-    txField:{
-        width:"100%",
-        backgroundColor:theme.palette.primary.main,
-        borderRadius:"20px",
-        border:"none",
-        textAlign:"center", 
-        height:"35px",
-    },
-    iconLog:{
-        position:"absolute",
-        paddingTop:"4px",
-        left:"10px",    
-    },
-    iconLogEye:{
-        position:"absolute",
-        paddingTop:"4px",
-        right:"10px", 
-    },
  
     button: {
         width:"13vw",

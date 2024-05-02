@@ -47,6 +47,8 @@ logo: {
 },
 photo: {
     padding:"0vh 7vw 0vh 1vw",
+    width:"10vw",
+    height:"10vh",
 },
 logoSm: {
     padding:"0vh 1vw 0vh 0.7vw",
@@ -56,6 +58,11 @@ logoSm: {
 nameLogo: {
     fontFamily:"Merriweather-Bold",
     fontSize:"1.3vw",
+},
+
+link: {
+    color: "inherit",
+    textDecoration: "none",
 }
 
 }));

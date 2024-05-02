@@ -1,5 +1,6 @@
 import {createTheme, CssBaseline, ThemeProvider} from '@material-ui/core';
 import Poppins from '../assets/fonts/Poppins-Regular.ttf';
+import Poppinsbold from '../assets/fonts/Poppins-Bold.ttf';
 import Merriweather from '../assets/fonts/Merriweather-Regular.ttf';
 
 
@@ -13,7 +14,7 @@ const PoppinsBold = {
     fontFamily: "Poppins-Bold",
     fontStyle: "normal",
     fontWeight: 800,
-    src: `url(${Poppins})`
+    src: `url(${Poppinsbold})`
 };
 const PoppinsSemibold = {
     fontFamily: "Poppins-SemiBold",

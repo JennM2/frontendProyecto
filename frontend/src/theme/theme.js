@@ -29,8 +29,8 @@ const MerriweatherRegular ={
 };
 const MerriweatherBold ={
     fontFamily: "Merriweather-Bold",
-    fontStyle: "normal",
-    fontWeight: 800,
+    fontStyle: "bold",
+    fontWeight: 990,
     src: `url(${Merriweather})`
 };
 

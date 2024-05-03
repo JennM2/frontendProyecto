@@ -5,6 +5,7 @@ import NavMenu from '../menu/NavMenu';
 import Logo from '../menu/Logo';
 import User from '../menu/User';
 import Perfil from './perfil/Perfil';
+import Users from './users/Users';
 import Wellcome from './wellcome/Wellcome';
 import perfil from '../../../assets/icons/perfilMenu.svg';
 import users from '../../../assets/icons/usersMenu.svg';
@@ -96,8 +97,9 @@ const Admin = () => {
             </div>
             <div className={classes.content}>
                 <Routes>
-                    <Route path='/wellcome' element={<Wellcome />}/>
+                    <Route path='/' element={<Wellcome />}/>
                     <Route path='/perfil' element={<Perfil />}/>
+                    <Route path='/users' element={<Users />}/>
                 </Routes>
             </div>
         </div>

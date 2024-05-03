@@ -1,0 +1,28 @@
+import { makeStyles } from '@material-ui/core';
+
+
+const useStyles = makeStyles((theme)=>({
+    table:{
+        width:"65vw",
+        textAlign: "center",
+        borderSpacing: "0px",
+    },
+    headTable:{
+        backgroundColor: theme.palette.primary.contrastText,
+        color: theme.palette.primary.main,
+        fontSize:"0.9vw",
+    },
+    nameHead:{
+        padding:"0.5vh 1.5vw 0.5vh 1.5vw"
+    },
+    bodyTable:{
+        padding:"0.5vh 0.5vw 0.2vh 0.5vw",
+        fontSize:"0.8vw",
+        borderBottom: `1px solid ${theme.palette.primary.light}`,
+    },
+    
+    rows:{
+    }
+}));
+
+export default useStyles;

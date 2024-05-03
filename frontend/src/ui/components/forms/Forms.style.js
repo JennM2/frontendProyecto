@@ -56,7 +56,47 @@ const useStyles = makeStyles((theme)=>({
         boxShadow:`0vw 0.1vw 0.2vw ${theme.palette.primary.light}`,
         fontSize:"1.1vw",
         textAlign:"center",
-    }
+    },
+    search:{
+        display:"flex",
+        width:"25vw",
+        height:"5vh",
+        margin:"5vh 0vw 7vh 10vw",
+    },
+    iconSearch:{
+        position:"relative",
+        width:"4vw",
+        height:"4vh",
+        left:"0.1vw",
+        top:"0.35vw",
+        
+
+    },
+    inputSearch:{
+        position:"absolute",
+        width:"22vw",
+        height:"5vh",
+        borderColor:`${theme.palette.primary.light}15`,
+        borderRadius:"1vw",
+        boxShadow:`0.1vw 0.2vw 0.1vw  ${theme.palette.primary.dark}`,
+        fontSize:"1.1vw",
+        textAlign:"center",
+        
+    },
+    button: {
+        width:"13vw",
+        height:"3.5vw",
+        marginTop:"0px",     
+        display:"flex",
+        justifyContent:"center",
+        alignItems:"center",
+        color:theme.palette.primary.main,
+        backgroundColor:theme.palette.primary.contrastText,
+        fontSize:"1.2vw",
+        borderRadius:"12px",
+        border:"none",
+        padding:"0.8vh 0.6vw 0.8vh 0.8vw",
+    },
 
 }));
 export default useStyles;

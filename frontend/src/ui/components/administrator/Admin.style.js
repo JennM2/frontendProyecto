@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme)=>({
     content:{
         position: "absolute",
         width:"82.9vw",
-        height:"83vh",
+        height:"87vh",
         right: "0px",
         bottom: "0px",
     },

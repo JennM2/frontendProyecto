@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme)=>({
         display: "flex",
         alignItems: "center",
         justifyContent: "space-around",
-        margin:"0vh 5vw 0vh 5vw"
+        margin:"0vh 5vw 0vh 5vw",
     },
     userPerfil:{
         display: "flex",
@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme)=>({
         width:"25vw",
         height:"60vh",
         paddingBottom: "10vh",
+        borderRadius:"2vw",
 
     },
     perfilPicture:{
@@ -27,7 +28,6 @@ const useStyles = makeStyles((theme)=>({
     },
     containerInputs:{
         width:"30vw",
-        //padding: "0vh 0vw 0vh 20vw  ",
     }
 
 

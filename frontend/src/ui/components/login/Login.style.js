@@ -57,30 +57,17 @@ const useStyles = makeStyles((theme)=>({
         marginTop: "5vh",
     },
     subtitle: {
-        height: "43vh",
+        height: "30vh",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        marginTop: "1vh",
+        marginTop: "4vh",
         marginBottom: "2vh",
+        
     },
 
- 
-    button: {
-        width:"13vw",
-        height:"48px",
-        marginTop:"48px",     
-        display:"flex",
-        justifyContent:"center",
-        alignItems:"center",
-        color:theme.palette.primary.main,
-        backgroundColor:theme.palette.primary.contrastText,
-        fontSize:"1.2vw",
-        borderRadius:"12px",
-        border:"none",
-        padding:"8px 6px 8px 8px",
-    },
+
 
 }));
 

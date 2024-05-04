@@ -2,14 +2,14 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useStyles from './NavMenu.style';
 
-const Option = ({ name, image, suboptions,onClick, path }) => {
+const Option = ({ name, image, suboptions, onClick, path }) => {
   const [showSuboptions, setShowSuboptions] = useState(false);
   const classes = useStyles();
   const handleClick = () => {
-    setShowSuboptions(!showSuboptions);
     if(onClick){
       onClick(name);
     }
+    setShowSuboptions(!showSuboptions);
   };
 
   return (
@@ -29,12 +29,15 @@ const Option = ({ name, image, suboptions,onClick, path }) => {
 
 const NavMenu = ({ options, className, onClick }) => {
     const classes = useStyles();
+    const [activeOption, setActiveOption] = useState(null);
+    const handleClick = (name) => {
+        setActiveOption(name);
+    };
     return(
         <div className={className || classes.containerMenu}>
-          <ul className={classes.options}>{options.map((option) => <Option {...option} onClick={onClick} />)}</ul>
+          <ul className={classes.options}>{options.map((option) => <Option {...option} onClick={handleClick} showSuboptions={option.name === activeOption} />)}</ul>
         </div>
     ); 
-    
 };
 
 export default NavMenu;

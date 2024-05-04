@@ -24,7 +24,9 @@ const Login = () => {
             <p className={classes.title}>SAN MARTÍN</p>
           </div>
           <Credentials/>
-          <ButtonSM icon={signIn} text="Iniciar Sesión"/>
+          <div className={classes.containerButton}>
+            <ButtonSM icon={signIn} text="Iniciar Sesión" className={classes.icon}/>
+          </div>
 
         </div>
       </div>

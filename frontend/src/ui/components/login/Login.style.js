@@ -66,7 +66,15 @@ const useStyles = makeStyles((theme)=>({
         marginBottom: "2vh",
         
     },
-
+    containerButton:{
+        width:"12vw",
+        height:"3.5vw",
+    },
+    icon:{
+        paddingLeft: "0.5vw",
+        width:"20%",
+        height:"70%",
+    }
 
 
 }));

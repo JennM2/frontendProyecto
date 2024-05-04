@@ -39,7 +39,6 @@ const useStyles = makeStyles((theme)=>({
     dynInputs:{
         display:"flex",
         flexDirection:"column",
-        flexWrap:"wrap",
         paddingBottom:"2vh",
     },
     dynLabel:{
@@ -61,7 +60,7 @@ const useStyles = makeStyles((theme)=>({
         display:"flex",
         width:"25vw",
         height:"5vh",
-        margin:"5vh 0vw 7vh 10vw",
+        margin:"6vh 0vw 7vh 8.9vw",
     },
     iconSearch:{
         position:"relative",
@@ -84,19 +83,24 @@ const useStyles = makeStyles((theme)=>({
         
     },
     button: {
-        width:"13vw",
-        height:"3.5vw",
+        width:"100%",
+        height:"90%",
         marginTop:"0px",     
         display:"flex",
         justifyContent:"center",
         alignItems:"center",
         color:theme.palette.primary.main,
         backgroundColor:theme.palette.primary.contrastText,
-        fontSize:"1.2vw",
-        borderRadius:"12px",
+        fontSize:"1.1vw",
+        borderRadius:"1vw",
         border:"none",
-        padding:"0.8vh 0.6vw 0.8vh 0.8vw",
+        paddingInline:"0%"
     },
+    iconButton:{
+        width:"50%",
+        height:"70%",
+        
+    }
 
 }));
 export default useStyles;

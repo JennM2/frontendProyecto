@@ -1,4 +1,3 @@
-//import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import useStyles from './Admin.style';
 import NavMenu from '../menu/NavMenu';
@@ -6,6 +5,7 @@ import Logo from '../menu/Logo';
 import User from '../menu/User';
 import Perfil from './perfil/Perfil';
 import Users from './users/Users';
+import Secretaries from './secretaries/Secretaries';
 import Wellcome from './wellcome/Wellcome';
 import perfil from '../../../assets/icons/perfilMenu.svg';
 import users from '../../../assets/icons/usersMenu.svg';
@@ -41,7 +41,7 @@ const Admin = () => {
         {
             name: 'Docentes',
             image: teachers,
-            path : '/teachers',
+            path : '/list',
             suboptions: [
                 {
                     name: 'Lista',
@@ -100,6 +100,7 @@ const Admin = () => {
                     <Route path='/' element={<Wellcome />}/>
                     <Route path='/perfil' element={<Perfil />}/>
                     <Route path='/users' element={<Users />}/>
+                    <Route path='/secretaries' element={<Secretaries />}/>  
                 </Routes>
             </div>
         </div>

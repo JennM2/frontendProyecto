@@ -7,8 +7,7 @@ const useStyles = makeStyles((theme)=>({
         display: 'flex',
         flexDirection: 'column',
         width: '65vw',
-        marginLeft: '10vw',
-        margin:' 10vh 0vw 0vh 10vw'
+        margin:' 7vh 0vw 0vh 8.9vw'
     }
 }));
 

@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme)=>({
         height:"87vh",
         right: "0px",
         bottom: "0px",
+        
     },
 
     text:{

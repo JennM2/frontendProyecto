@@ -1,10 +1,10 @@
 import useStyles from './Forms.style'
-const ButtonSM = ({icon, text}) => {
+const ButtonSM = ({icon, text, className, onClick}) => {
     const classes = useStyles();
     return(
-        <button className={classes.button}>
+        <button className={classes.button} onClick={onClick}>
             {text}
-            <img src={icon} alt="icon" />
+            <img className={className} src={icon} alt="icon" />
       </button>
     );
 };

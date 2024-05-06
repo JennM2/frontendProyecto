@@ -23,10 +23,10 @@ const Users = () => {
             </div>
             <div className={classes.contentUsers}>
                 <div className={classes.searchUsers}>
-                    <Search/>
+                    <Search text={"Buscar"}/>
                 </div>
                 <div className={classes.tableUsers}>
-                    <Table columns={columns} data={data} icon={deleteIcon}/>
+                    <Table columns={columns} data={data} columnIcon={"Acción"} icon={deleteIcon}/>
                 </div>
             </div>
         </div>

@@ -1,11 +1,16 @@
 import { Route, Routes } from 'react-router-dom';
+import { useState } from 'react';
 import useStyles from './Admin.style';
 import NavMenu from '../menu/NavMenu';
 import Logo from '../menu/Logo';
 import User from '../menu/User';
 import Perfil from './perfil/Perfil';
 import Users from './users/Users';
+import Backups from './backups/Backups';
 import Secretaries from './secretaries/Secretaries';
+import TeachersList from './teacher/TeacherList'
+import TeacherEvaluation from './teacher/TeacherEvaluation';
+import Students from './students/Students';
 import Wellcome from './wellcome/Wellcome';
 import perfil from '../../../assets/icons/perfilMenu.svg';
 import users from '../../../assets/icons/usersMenu.svg';
@@ -20,7 +25,11 @@ import closeSession from '../../../assets/icons/closeSessionMenu.svg';
 
 const Admin = () => {
    const classes = useStyles();
+    const [isSelected, setIsSelected] = useState();
 
+    const handleClick = () =>{
+        setIsSelected(!isSelected);
+    };
    
     const options = [
         {
@@ -89,11 +98,11 @@ const Admin = () => {
                 <User/>
             </div>
             <div className={classes.menu}>
-                <NavMenu  options={options} />
+                <NavMenu  options={options} onClick={handleClick}/>
                 <hr className={classes.line}/>
-                <NavMenu  options={options2}  />
+                <NavMenu  options={options2} onClick={handleClick} />
                 <hr className={classes.line}/>
-                <NavMenu  options={options3} />
+                <NavMenu  options={options3} onClick={handleClick}/>
             </div>
             <div className={classes.content}>
                 <Routes>
@@ -101,6 +110,11 @@ const Admin = () => {
                     <Route path='/perfil' element={<Perfil />}/>
                     <Route path='/users' element={<Users />}/>
                     <Route path='/secretaries' element={<Secretaries />}/>  
+                    <Route path='/list' element={<TeachersList />}/>  
+                    <Route path='/evaluation' element={<TeacherEvaluation />}/>
+                    <Route path='/students' element={<Students/>}/> 
+                    <Route path='/backups' element={<Backups/>}/> 
+
                 </Routes>
             </div>
         </div>

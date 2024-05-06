@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core';
+import { hover } from '@testing-library/user-event/dist/hover';
 //import mq from '../../../config/mq';
 
 const useStyles = makeStyles((theme)=>({
@@ -29,41 +30,49 @@ const useStyles = makeStyles((theme)=>({
         fontSize:"1vw",
         height:"100%",
     },
-info: {
-    display: "flex",
-    alignItems: "center",
-    height:"7vh"
-},
-options: {
-    paddingLeft: "2vw",
-},
+    info: {
+        display: "flex",
+        alignItems: "center",
+        height:"7vh"
+    },
+    selectedInfo:{
+        width:"95%",
+        backgroundColor: theme.palette.primary.light,
+        paddingLeft:"2vw",
+        borderRadius: "2vw",
+        border: "2px solid",
+        borderColor:theme.palette.primary.dark+"C9",
+    },
+    options: {
+        paddingLeft: "2vw",
+    },
 
-logo: {
-    display: "flex",
-    justifyItems: "center",
-    alignItems: "center",
-    height:"15vh",
-    color: theme.palette.primary.contrastText,
-},
-photo: {
-    padding:"0vh 7vw 0vh 1vw",
-    width:"10vw",
-    height:"10vh",
-},
-logoSm: {
-    padding:"0vh 1vw 0vh 0.7vw",
-    width:"5vw",
-    height:"5vw",
-},
-nameLogo: {
-    fontFamily:"Merriweather-Bold",
-    fontSize:"1.3vw",
-},
+    logo: {
+        display: "flex",
+        justifyItems: "center",
+        alignItems: "center",
+        height:"15vh",
+        color: theme.palette.primary.contrastText,
+    },
+    photo: {
+        padding:"0vh 7vw 0vh 1vw",
+        width:"10vw",
+        height:"10vh",
+    },
+    logoSm: {
+        padding:"0vh 1vw 0vh 0.7vw",
+        width:"5vw",
+        height:"5vw",
+    },
+    nameLogo: {
+        fontFamily:"Merriweather-Bold",
+        fontSize:"1.3vw",
+    },
 
-link: {
-    color: "inherit",
-    textDecoration: "none",
-}
+    link: {
+        color: "inherit",
+        textDecoration: "none",
+    }
 
 }));
 

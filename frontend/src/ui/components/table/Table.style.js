@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme)=>({
     headTable:{
         backgroundColor: theme.palette.primary.contrastText,
         color: theme.palette.primary.main,
-        fontSize:"0.9vw",
+        fontSize:"0.9vw"
     },
     nameHead:{
         padding:"0.5vh 1.5vw 0.5vh 1.5vw"
@@ -19,9 +19,16 @@ const useStyles = makeStyles((theme)=>({
         padding:"0.5vh 0.5vw 0.2vh 0.5vw",
         fontSize:"0.8vw",
         borderBottom: `1px solid ${theme.palette.primary.light}`,
+        
     },
-    
-    rows:{
+    iconAccion:{
+        width:"4vw",
+        height:"4vh",
+        padding:"0px"
+    },
+    underline:{
+        textDecoration:"underline",
+        cursor:"pointer",
     }
 }));
 

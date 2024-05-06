@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import useStyles from './Secretaries.style';
+import modalStyles from '../Modal.style';
 import adminStyles from '../Admin.style';
 import Table from '../../table/Table';
 import DynamicInputs from '../../forms/DynamicInputs';
@@ -12,6 +13,7 @@ import cancelIcon from '../../../../assets/icons/cancel.svg';
 const Secretaries = () => {
     const classes = useStyles();
     const adminClasses = adminStyles();
+    const modalClasses = modalStyles();
     const [isClick, setIsClick] = useState(false);
 
     const handleNewClick = () =>{
@@ -49,7 +51,7 @@ const Secretaries = () => {
                             <ButtonSM icon={newSecretary} text="Nuevo" className={classes.iconSecretaries} />
                         </div>
                         <div className={classes.tableSecretaries}>
-                            <Table columns={columns} data={data} icon={deleteIcon} />
+                            <Table columns={columns} data={data} columnIcon={"Acción"} icon={deleteIcon} />
                         </div>
                     </div>
                 </div>
@@ -58,22 +60,22 @@ const Secretaries = () => {
         } else{            
             return(
                 <>
-                <div className={classes.under}></div>
-                <div className={classes.containerNewSecretary}>
-                    <div className={classes.backgroundSecretary}>
+                <div className={modalClasses.under}></div>
+                <div className={modalClasses.container}>
+                    <div className={modalClasses.content}>
                         <p>NUEVO SECRETARIO</p>
-                        <div className={classes.containerInputs}>
-                            <DynamicInputs fields={fieldsC1} className={classes.inputs}/>
-                            <DynamicInputs fields={fieldsC2} className={classes.inputs}/>
+                        <div className={modalClasses.containerInputs}>
+                            <DynamicInputs fields={fieldsC1} className={modalClasses.inputs}/>
+                            <DynamicInputs fields={fieldsC2} className={modalClasses.inputs}/>
                         </div>
-                        <div className={classes.footerSecretary}>
+                        <div className={modalClasses.contentButtons}>
                             <Credentials/>
                             <div className={classes.buttonSecretary}>
                                 <div className={classes.buttonS} >
-                                    <ButtonSM  icon={saveIcon} text="Guardar" className={classes.iconSave} onClick={handleNewClick}/>
+                                    <ButtonSM  icon={saveIcon} text="Guardar" className={modalClasses.icons} onClick={handleNewClick}/>
                                 </div>
                                 <div className={classes.buttonS}>
-                                    <ButtonSM icon={cancelIcon} text="Cancelar" className={classes.iconCancel} onClick={handleNewClick}/>
+                                    <ButtonSM icon={cancelIcon} text="Cancelar" className={modalClasses.icons} onClick={handleNewClick}/>
                                 </div>
                             </div>
                         </div>

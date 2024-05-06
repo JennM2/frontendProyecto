@@ -1,5 +1,4 @@
 import { makeStyles } from '@material-ui/core';
-//import mq from '../../../config/mq';
 
 const useStyles = makeStyles((theme)=>({
 
@@ -14,7 +13,7 @@ const useStyles = makeStyles((theme)=>({
 
     text:{
         fontFamily:"Poppins-Bold",
-        fontSize:"3vw",
+        fontSize:"2.7vw",
         margin:"0vh 0vw 0vh 7vw",
         color: theme.palette.primary.light
     },

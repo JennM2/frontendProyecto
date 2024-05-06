@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useStyles from './NavMenu.style';
 
-const Option = ({ name, image, suboptions, onClick, path }) => {
+const Option = ({ name, image, suboptions, onClick, path,isSelected }) => {
   const [showSuboptions, setShowSuboptions] = useState(false);
   const classes = useStyles();
   const handleClick = () => {
@@ -15,7 +15,7 @@ const Option = ({ name, image, suboptions, onClick, path }) => {
   return (
     <li className={classes.list} key={name} onClick={handleClick}>
       <Link to={path || '/'} className={classes.link}>
-        <div className={classes.info}> 
+        <div className={`${classes.info} ${isSelected && classes.selectedInfo}`}> 
             <img className={classes.icon} src={image} alt={name} />
             <p className={classes.label}>{name}</p>
         </div>
@@ -35,7 +35,7 @@ const NavMenu = ({ options, className, onClick }) => {
     };
     return(
         <div className={className || classes.containerMenu}>
-          <ul className={classes.options}>{options.map((option) => <Option {...option} onClick={handleClick} showSuboptions={option.name === activeOption} />)}</ul>
+          <ul className={classes.options}>{options.map((option) => <Option {...option} onClick={handleClick} isSelected={option.name === activeOption} />)}</ul>
         </div>
     ); 
 };

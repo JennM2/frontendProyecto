@@ -21,15 +21,16 @@ import evaluation from '../../../assets/icons/evaluationMenu.svg';
 import students from '../../../assets/icons/studentsMenu.svg';
 import backups from '../../../assets/icons/backupMenu.svg';
 import closeSession from '../../../assets/icons/closeSessionMenu.svg';
-
+import user from '../../../assets/icons/userLog.svg';
 
 const Admin = () => {
    const classes = useStyles();
-    const [isSelected, setIsSelected] = useState();
 
-    const handleClick = () =>{
-        setIsSelected(!isSelected);
-    };
+   const [selectedOption, setSelectedOption] = useState();
+
+   const [selectedImage, setSelectedImage] = useState(user);
+   const [nameUser] = useState("Administrador");
+
    
     const options = [
         {
@@ -50,15 +51,18 @@ const Admin = () => {
         {
             name: 'Docentes',
             image: teachers,
+            nameLabel:'Lista',
             path : '/list',
             suboptions: [
                 {
                     name: 'Lista',
+                    nameLabel:'Listas',
                     image: list,
                     path: '/list'
                 },
                 {
                     name: 'Evaluación',
+                    nameLabel:'Evaluación',
                     image: evaluation,
                     path: '/evaluation'
                 },
@@ -95,19 +99,19 @@ const Admin = () => {
         <div>
             <div className={classes.top}>
                 <Logo/>
-                <User/>
+                <User userPerfil = {selectedImage} nameUser={nameUser}/>
             </div>
             <div className={classes.menu}>
-                <NavMenu  options={options} onClick={handleClick}/>
+                 <NavMenu  options={options} selectedOption={selectedOption} setSelectedOption={setSelectedOption} />
                 <hr className={classes.line}/>
-                <NavMenu  options={options2} onClick={handleClick} />
+                <NavMenu  options={options2} selectedOption={selectedOption} setSelectedOption={setSelectedOption} />
                 <hr className={classes.line}/>
-                <NavMenu  options={options3} onClick={handleClick}/>
+                <NavMenu  options={options3} selectedOption={selectedOption} setSelectedOption={setSelectedOption} />
             </div>
             <div className={classes.content}>
                 <Routes>
                     <Route path='/' element={<Wellcome />}/>
-                    <Route path='/perfil' element={<Perfil />}/>
+                    <Route path='/perfil' element={<Perfil setSelectedImage={setSelectedImage} nameUser={nameUser} />}/>
                     <Route path='/users' element={<Users />}/>
                     <Route path='/secretaries' element={<Secretaries />}/>  
                     <Route path='/list' element={<TeachersList />}/>  

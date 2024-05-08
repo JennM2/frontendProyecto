@@ -24,7 +24,8 @@ const useStyles = makeStyles((theme)=>({
     iconAccion:{
         width:"4vw",
         height:"4vh",
-        padding:"0px"
+        padding:"0px",
+        cursor:"pointer",
     },
     underline:{
         textDecoration:"underline",

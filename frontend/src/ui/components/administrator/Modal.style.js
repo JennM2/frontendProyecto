@@ -67,7 +67,72 @@ const useStyles = makeStyles((theme)=>({
     tableModal:{
         width: '65vw',  
         margin:' 2vh 0vw 12vh 0.3vw'
-    }
+    },
+    containerDialog:{
+        display:"flex",
+        flexDirection:"column",
+        justifyContent:"center",
+        alignItems:"center",
+        width:"40%",
+        height:"25vw",
+        background: theme.palette.primary.main ,
+        position:"absolute",
+        top: "15%",
+        left: "20%",
+        borderRadius: "0.5vw",
+        boxShadow: `0.7vw 1.5vh 0.3vw  ${theme.palette.primary.light}50`
+    },
+    iconAlert:{
+        width: "7vw",
+        height: "7vw",
+    },
+    cuestionAlert:{
+        width: "80%",
+        textAlign: "center",
+        fontFamily:"Poppins-Semibold",
+        fontSize: "1.5vw",
+    },
+    containerButtons:{
+        display: "flex",
+        width: "100%",
+        justifyContent:"space-around",
+    },
+    buttonAction:{
+        width: "30%",
+        height: "3vw",
+        marginTop:"1vw",
+        cursor: "pointer",
+    },
+    buttonCancel:{
+        width:"100%",
+        height:"100%",
+        display:"flex",
+        justifyContent:"space-evenly",
+        alignItems:"center",
+        color:theme.palette.primary.main,
+        backgroundColor:theme.palette.primary.contrastText+"80",
+        fontSize:"1.1vw",
+        borderRadius:"1vw",
+        border:"none",
+        cursor: "pointer",
+
+        
+    },
+    buttonDelete:{
+        width:"100%",
+        height:"100%",
+        display:"flex",
+        justifyContent:"space-evenly",
+        alignItems:"center",
+        color:theme.palette.primary.main,
+        backgroundColor:theme.palette.primary.alertText,
+        fontSize:"1.1vw",
+        borderRadius:"1vw",
+        border:"none",
+        cursor: "pointer",
+
+        
+    },
 
 }));
 

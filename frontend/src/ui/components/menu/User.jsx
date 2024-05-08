@@ -1,13 +1,13 @@
 import useStyles from './NavMenu.style';
-import user from '../../../assets/icons/userLog.svg';
 
-const User = () => {
+
+const User = ({userPerfil, nameUser}) => {
     const classes = useStyles();
 
     return (
         <div className={classes.logo}>
-            <p>Administrador</p>
-            <img className={classes.photo} src={user} alt="user" />
+            <p>{nameUser}</p>
+            <img className={classes.photo} src={userPerfil} alt="user" />
         </div>
     );
 };

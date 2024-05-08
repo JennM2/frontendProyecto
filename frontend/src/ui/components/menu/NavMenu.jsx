@@ -2,42 +2,42 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useStyles from './NavMenu.style';
 
-const Option = ({ name, image, suboptions, onClick, path,isSelected }) => {
-  const [showSuboptions, setShowSuboptions] = useState(false);
+const NavMenu = ({ options, selectedOption, setSelectedOption }) => {
   const classes = useStyles();
-  const handleClick = () => {
-    if(onClick){
-      onClick(name);
-    }
-    setShowSuboptions(!showSuboptions);
-  };
+  const [selectedSubOption, setSelectedSubOption] = useState(null);
 
   return (
-    <li className={classes.list} key={name} onClick={handleClick}>
-      <Link to={path || '/'} className={classes.link}>
-        <div className={`${classes.info} ${isSelected && classes.selectedInfo}`}> 
-            <img className={classes.icon} src={image} alt={name} />
-            <p className={classes.label}>{name}</p>
-        </div>
-      </Link>
-      {showSuboptions && suboptions && suboptions.length > 0 && (
-        <NavMenu options={suboptions} className= {classes.subMenu} onClick={onClick} />
-      )}
-    </li>
+    <ul className={classes.options}>
+      {options.map(option => (
+        <li className={classes.list} key={option.name}>
+          <Link to={option.path} className={classes.link}>
+            <button className={classes.buttonOption} onClick={() => setSelectedOption(option.name)} >
+              <div className={`${classes.info} ${selectedOption === option.name && classes.selectedInfo}`}> 
+                <img className={classes.icon} src={option.image} alt={option.name} />
+                {option.name}
+              </div>
+            </button>
+          </Link>
+          {option.name === selectedOption && option.suboptions && (
+            <ul className={classes.subMenu}>
+              {option.suboptions.map(suboption => (
+                <li className={classes.listSub} key={suboption.name}>
+                  <Link to={suboption.path} className={classes.link}>
+                    <button className={classes.buttonSuboption} onClick={() => setSelectedSubOption(suboption.nameLabel)}>
+                      <div className={`${classes.infoSuboption} ${selectedSubOption === suboption.nameLabel && classes.selectedInfoSub}`}>
+                          <img className={classes.icon} src={suboption.image} alt={suboption.name} />
+                          {suboption.name}
+                      </div>
+                    </button>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))}
+    </ul>
   );
-};
-
-const NavMenu = ({ options, className, onClick }) => {
-    const classes = useStyles();
-    const [activeOption, setActiveOption] = useState(null);
-    const handleClick = (name) => {
-        setActiveOption(name);
-    };
-    return(
-        <div className={className || classes.containerMenu}>
-          <ul className={classes.options}>{options.map((option) => <Option {...option} onClick={handleClick} isSelected={option.name === activeOption} />)}</ul>
-        </div>
-    ); 
 };
 
 export default NavMenu;

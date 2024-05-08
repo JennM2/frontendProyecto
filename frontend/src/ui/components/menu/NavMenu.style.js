@@ -1,6 +1,5 @@
 import { makeStyles } from '@material-ui/core';
-import { hover } from '@testing-library/user-event/dist/hover';
-//import mq from '../../../config/mq';
+
 
 const useStyles = makeStyles((theme)=>({
 
@@ -14,39 +13,70 @@ const useStyles = makeStyles((theme)=>({
         display:"flex",
         flexDirection:"column",
         color:theme.palette.primary.main,
-        fontSize:"1.1vw",
     },
     list: {
+        listStyle:"none",
+    },
+    buttonOption:{
+        background:"none",
+        border:"none",
+        width:"100%",
+        fontSize:"1.1vw",
+    },
+    info: {
+        display: "flex",
+        alignItems: "center",
+        height:"7vh",
+        color: theme.palette.primary.main,
+        cursor: "pointer",
+    },
+    selectedInfo:{
+        width:"95%",
+        backgroundColor: theme.palette.primary.main+"30",
+        paddingLeft:"2vw",
+        borderRadius: "0.5vw",
+        boxShadow:` -0.2vw 0.2vw 0.1vw ${theme.palette.primary.contrastText}`,
+        height:"2.5vw"
+    },
+    
+    options: {
+        paddingLeft: "1.5vw",
+    },
+    listSub: {
         listStyle:"none",
     },
     subMenu: {
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center",
         backgroundColor: theme.palette.primary.light+"C9",
-        marginRight:"1vw",
+        marginLeft:"2.5vw",
         padding: "1vh 0vw 1vh 0vw",
-        borderRadius: "1vw",
         fontSize:"1vw",
-        height:"100%",
+        height:"80%",
+        width:"75%",
     },
-    info: {
+    buttonSuboption:{
         display: "flex",
         alignItems: "center",
-        height:"7vh"
-    },
-    selectedInfo:{
-        width:"95%",
-        backgroundColor: theme.palette.primary.light,
-        paddingLeft:"2vw",
-        borderRadius: "2vw",
-        border: "2px solid",
-        borderColor:theme.palette.primary.dark+"C9",
-    },
-    options: {
-        paddingLeft: "2vw",
-    },
+        background:"none",
+        border:"none",
+        width:"100%",
+        color: theme.palette.primary.main,
+        height:"3.5vw",
+        fontSize:"1vw",
 
+    },
+    infoSuboption:{
+        paddingLeft: "0.5vw",
+        display: "flex",
+        alignItems: "center",
+    },
+    selectedInfoSub:{
+        backgroundColor: theme.palette.primary.contrastText,
+        width:"100%",
+        height:"75%"
+    },
+    
     logo: {
         display: "flex",
         justifyItems: "center",
@@ -55,9 +85,10 @@ const useStyles = makeStyles((theme)=>({
         color: theme.palette.primary.contrastText,
     },
     photo: {
-        padding:"0vh 7vw 0vh 1vw",
-        width:"10vw",
-        height:"10vh",
+        margin:"0vh 5vw 0vh 1vw",
+        width:"3vw",
+        height:"3vw",
+        borderRadius: "50%",
     },
     logoSm: {
         padding:"0vh 1vw 0vh 0.7vw",

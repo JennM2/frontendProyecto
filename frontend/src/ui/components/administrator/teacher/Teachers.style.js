@@ -94,17 +94,21 @@ const useStyles = makeStyles((theme)=>({
         fontFamily:"Poppins-Regular",
         paddingInline:"2vw",
     },
+    subtitleAssign:{
+        margin: "1vw 0vw 1vw 0vw ",
+    },
     lineEnable:{
         width: "90%",
         padding: "0.35vh",
-        marginBottom: "4vh",
+        marginBottom: "1.5vw",
         borderColor:theme.palette.primary.contrastText+"50",
         backgroundColor: theme.palette.primary.contrastText+"50",
     },
     containerEnable:{
         width: "90%",
-        height: "100%",
+        height: "60%",
         display: "flex",
+        alignContent:"flex-start",
         justifyContent:"Space-around",
         marginBottom:"10vh"
     },
@@ -113,17 +117,15 @@ const useStyles = makeStyles((theme)=>({
         flexDirection: "column",
         alignItems: "center",
         width: "30%",
-        height: "90%",
         backgroundColor: theme.palette.primary.contrastText+"B0",
         borderRadius: "3vh",
         fontFamily: "Poppins-Regular",
         fontSize: "1.5vw",
-
     },
     
     assign:{
         width: "100%",
-        height: "10vh",
+        height: "25%",
         display: "flex",
         flexDirection: "column",
         marginLeft: "5vw",
@@ -132,7 +134,7 @@ const useStyles = makeStyles((theme)=>({
     },
     select:{
         width: "80%",
-        height: "4.7vh",
+        height: "2vw",
         borderRadius: "4vw",
     },
     containerSmall:{
@@ -167,14 +169,14 @@ const useStyles = makeStyles((theme)=>({
         fontSize:"1.1vw",
         borderRadius:"1vw",
         border:"0.1 solid ",
-        height: "5vh",
+        height: "2.5vw",
     },
     containerSubjectAssign:{
         display:"flex",
         flexDirection:"column",
         alignItems:"center",
         width: "48%",
-        height: "90%",
+        height: "20vw",
         fontFamily:"Poppins-Regular",
         fontSize: "1.5vw",
     },
@@ -182,9 +184,9 @@ const useStyles = makeStyles((theme)=>({
         width:"100%",
         color: theme.palette.primary.contrastText,
         textAlign: "center",
-        marginBottom:"3vh",
+        marginBottom:"1vw",
         borderSpacing: "0px",
-
+        height:"30%"
     },
     bodyTable:{
         backgroundColor: theme.palette.primary.main,
@@ -198,7 +200,7 @@ const useStyles = makeStyles((theme)=>({
         justifyContent:"space-evenly",
         width: "60%",
         height: "15vh",
-        paddingTop: "4vh",
+        paddingTop: "0.7vw",
     },
     buttons:{
         width: "9vw",

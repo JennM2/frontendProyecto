@@ -64,6 +64,7 @@ const useStyles = makeStyles((theme)=>({
         color: theme.palette.primary.main,
         height:"3.5vw",
         fontSize:"1vw",
+        cursor: "pointer",
 
     },
     infoSuboption:{

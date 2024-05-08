@@ -235,8 +235,10 @@ const TeacherList = ( ) => {
             <>
                 <div className={modalClasses.under}></div>
                 <div className={modalClasses.containerDialog}>
-                    <img className={modalClasses.iconAlert} src={alertIcon} alt="alertDelete" />
-                    <p className={modalClasses.cuestionAlert}>¿Está seguro de que desea eliminar al a <br/> {idDelete}?</p>
+                    <div className={modalClasses.alert}>
+                        <img className={modalClasses.iconAlert} src={alertIcon} alt="alertDelete" />
+                    </div>
+                    <p className={modalClasses.cuestionAlert}>¿Está seguro de que desea eliminar a <br/> {idDelete}?</p>
                     <div className={modalClasses.containerButtons}>
                         <div className={modalClasses.buttonAction}>
                             <ButtonSM icon={cancelIcon} text="Cancelar" className2={modalClasses.buttonCancel} onClick={handleDeleteModal}/>

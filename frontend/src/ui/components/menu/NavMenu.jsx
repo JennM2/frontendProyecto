@@ -4,14 +4,18 @@ import useStyles from './NavMenu.style';
 
 const NavMenu = ({ options, selectedOption, setSelectedOption }) => {
   const classes = useStyles();
-  const [selectedSubOption, setSelectedSubOption] = useState(null);
+  const [selectedSubOption, setSelectedSubOption] = useState('Docentes')
+  const handleOptionClick = (option) => {
+    setSelectedOption(option.name);
+    setSelectedSubOption('Docentes');
+  };
 
   return (
     <ul className={classes.options}>
       {options.map(option => (
-        <li className={classes.list} key={option.name}>
+        <li className={classes.list} key={option.name}> 
           <Link to={option.path} className={classes.link}>
-            <button className={classes.buttonOption} onClick={() => setSelectedOption(option.name)} >
+            <button className={classes.buttonOption} onClick={() => handleOptionClick(option)} >             
               <div className={`${classes.info} ${selectedOption === option.name && classes.selectedInfo}`}> 
                 <img className={classes.icon} src={option.image} alt={option.name} />
                 {option.name}

@@ -48,7 +48,6 @@ const theme = createTheme({
             light: "#1E3D58",
             dark: "#D9D9D9",
             contrastText: "#061633",
-            alertText: "#E30000"
         },
         common: {
             black: "#000000",

@@ -49,24 +49,23 @@ const Admin = () => {
             path: '/secretaries'
         },
         {
-            name: 'Docentes',
-            image: teachers,
-            nameLabel:'Lista',
-            path : '/list',
-            suboptions: [
-                {
-                    name: 'Lista',
-                    nameLabel:'Listas',
-                    image: list,
-                    path: '/list'
-                },
-                {
-                    name: 'Evaluación',
-                    nameLabel:'Evaluación',
-                    image: evaluation,
-                    path: '/evaluation'
-                },
-            ]
+                name: 'Docentes',
+                image: teachers,
+                path : '/list',
+                suboptions: [
+                    {
+                        name: 'Lista',
+                        nameLabel:'Docentes',
+                        image: list,
+                        path: '/list'
+                    },
+                    {
+                        name: 'Evaluación',
+                        nameLabel:'Evaluación',
+                        image: evaluation,
+                        path: '/evaluation'
+                    },
+                ]
         },
     ];
     

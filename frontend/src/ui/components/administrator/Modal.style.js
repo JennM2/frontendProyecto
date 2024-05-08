@@ -82,15 +82,23 @@ const useStyles = makeStyles((theme)=>({
         borderRadius: "0.5vw",
         boxShadow: `0.7vw 1.5vh 0.3vw  ${theme.palette.primary.light}50`
     },
+    alert:{
+        width:"100%",
+        height:"9vw",
+        background: `radial-gradient(circle at 0% 50%, ${theme.palette.primary.light}, ${theme.palette.primary.contrastText})` ,
+        display:"flex",
+        alignItems:"center",
+        justifyContent:"center",
+    },
     iconAlert:{
         width: "7vw",
         height: "7vw",
     },
     cuestionAlert:{
-        width: "80%",
+        width: "82%",
         textAlign: "center",
         fontFamily:"Poppins-Semibold",
-        fontSize: "1.5vw",
+        fontSize: "1.4vw",
     },
     containerButtons:{
         display: "flex",
@@ -125,7 +133,7 @@ const useStyles = makeStyles((theme)=>({
         justifyContent:"space-evenly",
         alignItems:"center",
         color:theme.palette.primary.main,
-        backgroundColor:theme.palette.primary.alertText,
+        backgroundColor:theme.palette.primary.contrastText,
         fontSize:"1.1vw",
         borderRadius:"1vw",
         border:"none",

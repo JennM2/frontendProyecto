@@ -1,7 +1,7 @@
     import useStyles from "./Table.style";
     import ActionColumn from "./ActionColumn";
 
-    const Table = ({ columns, data, icon, icon2, icon3,columnIcon, textLink,columnAction,className, className2, onClick, onDelete, onAdd, start, end, onEdit}) => {
+    const Table = ({ columns, data, icon, icon2, icon3,columnIcon, textLink,columnAction,className, className2,classNameIcon, onClick, onDelete, onAdd, start, end, onEdit}) => {
         
         const classes = useStyles();
 
@@ -20,7 +20,7 @@
                         {row.map((cell, cellIndex) => (
                         <td className={className2||classes.bodyTable} key={cellIndex}>
                             {cellIndex === columns.indexOf(`${columnIcon}`) && (
-                                <ActionColumn icon={icon} icon2={icon2} icon3={icon3} onDelete={onDelete} onEdit={onEdit}  onAdd={onAdd} id={row.slice(start, end).join(' ')} idEdit={rowIndex}/>
+                                <ActionColumn icon={icon} icon2={icon2} icon3={icon3} onDelete={onDelete} onEdit={onEdit}  onAdd={onAdd} id={row.slice(start, end).join(' ')} idEdit={rowIndex} classNameIcon={classNameIcon}/>
                             )}
                             {typeof cell === 'string' && !(cellIndex === columns.indexOf(`${columnIcon}`)) && cell}
                             {columns[cellIndex] === `${columnAction}`&& (

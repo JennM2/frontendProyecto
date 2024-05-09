@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import adminStyles from '../Admin.style';
 import useStyles from './Teachers.style'
-import modalStyles from '../Modal.style';
+import modalStyles from '../../Modal.style';
 import Search from '../../forms/Search';
 import Table from '../../table/Table';
 import ButtonSM from '../../forms/ButtonSM';
@@ -224,8 +224,6 @@ const TeacherList = ( ) => {
     };
     const handleSaveAssignment = () => {
         const newRow = [assignSurnameP, assignSurnameM, assignName, dataAssignName[0],dataAssignName[1],dataAssignName[2]];
-        console.log('aqui');
-        console.log(newRow);
         setDataModal(prevData => [...prevData, newRow]);
         setIsModalAssingOpen(!isModalAssingOpen);
     };

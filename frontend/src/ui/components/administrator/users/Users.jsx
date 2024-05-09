@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import useStyles from './Users.style';
-import modalStyles from '../Modal.style';
+import modalStyles from '../../Modal.style';
 import adminStyles from '../Admin.style';
 import Table from '../../table/Table';
 import Search from '../../forms/Search';

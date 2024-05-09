@@ -1,12 +1,12 @@
     import useStyles from "./Table.style";
     import ActionColumn from "./ActionColumn";
 
-    const Table = ({ columns, data, icon, icon2, icon3,columnIcon, textLink,columnAction,className, className2,classNameIcon, onClick, onDelete, onAdd, start, end, onEdit}) => {
+    const Table = ({ columns, data, icon, icon2, icon3,columnIcon, textLink,columnAction,className, className2,classNameIcon, onClick, onDelete, onAdd, start, end, onEdit, tableRef}) => {
         
         const classes = useStyles();
 
         return(
-            <table className={className||classes.table}>
+            <table className={className||classes.table} ref={tableRef}>
                 <thead className={classes.headTable}>
                     <tr>
                     {columns.map((column, index) => (

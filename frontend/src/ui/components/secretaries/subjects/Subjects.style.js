@@ -7,9 +7,10 @@ const useStyles = makeStyles((theme)=>({
         cursor:"pointer",
     },
     iconButton:{
-        paddingLeft:"0.8vw",
+        paddingLeft:"1vw",
+        width:"2.5vw",
+        height:"2.5vw",
         cursor:"pointer",
-
     },
     tableSubject:{
         width:"80%",

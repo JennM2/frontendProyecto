@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import adminStyles from '../Admin.style';
 import useStyles from './Students.style';
-import modalStyles from '../Modal.style';
+import modalStyles from '../../Modal.style';
 import Search from '../../forms/Search';
 import ButtonSM from '../../forms/ButtonSM';
 import Table from '../../table/Table';

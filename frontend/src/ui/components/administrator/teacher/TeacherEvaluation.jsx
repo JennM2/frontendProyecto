@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import adminStyles from '../Admin.style';
 import useStyles from './Teachers.style';
-import modalStyles from '../Modal.style';
+import modalStyles from '../../Modal.style';
 import Table from '../../table/Table';
 import ButtonSM from '../../forms/ButtonSM';
 import closeIcon from '../../../../assets/icons/cancel.svg';

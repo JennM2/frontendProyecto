@@ -13,6 +13,7 @@ import alertIcon from '../../../../assets/images/alert.svg';
 import cancelIcon from '../../../../assets/icons/cancel.svg';
 import deletIconW  from '../../../../assets/icons/deleteW.svg';
 import enableIcon from '../../../../assets/icons/enable.svg';
+import editIcon from '../../../../assets/icons/editLight.svg';
 
 
 const Subjects = () => {
@@ -26,7 +27,6 @@ const Subjects = () => {
     const [editingRow, setEditingRow] = useState(null);
     const [editedId, setEditedId] = useState('');
 
-    const [number, setNumber] = useState('5');
     const [career, setCareer] = useState('');
     const [subject, setSubject] = useState('');
     const [year, setYear] = useState('');
@@ -65,7 +65,7 @@ const Subjects = () => {
         handleStates();
     };
     const handleOpenModalEditSubject = () => {
-        setOpenModalEditSubject(!openModalEnableSubject);
+        setOpenModalEditSubject(!openModalEditSubject);
         handleStates();
     };
     const handleStates = () => {
@@ -80,13 +80,60 @@ const Subjects = () => {
     };
 
     const handleSave = () => {
-        const newRow = [number,career,subject,year,teacher,schedule,duration,enablementDate,disablementDate,''];
+        const newRow = [(data.length+1).toString(),career,subject,year,teacher,schedule,duration,enablementDate,disablementDate,''];
         setData(prevData => [...prevData, newRow]);
         handleOpenModalEnable(false);
         handleStates();
-        setNumber((parseInt(number)+1).toString());
 
     };
+    const handleInputChangeEdit = (id, newValue) => {
+        const updatedRow = { ...editingRow, [id]: newValue };
+        setEditingRow(updatedRow);
+        console.log("aqui");
+    };
+
+    const handleEditClick = (rowId) => {
+        const row = data[rowId];
+        const editingRow = {
+            subject: row[1],
+            career: row[2],
+            year: row[3],
+            teacher: row[4],
+            schedule: row[5],
+            duration: row[6],
+            enablementDate: row[7],
+            disablementDate: row[8],
+        };
+        console.log(editingRow);
+        setOpenModalEditSubject(true);
+        setEditingRow(editingRow);
+        setEditedId(row[0]);
+    };
+    const handleEditSave = () => {
+        if (editingRow) {
+            const newData = data.map(row => {
+                if (row[0] === editedId) {
+                    return [
+                        row[0],
+                        editingRow.subject || row[1],
+                        editingRow.career || row[2],
+                        editingRow.year || row[3],
+                        editingRow.teacher || row[4],
+                        editingRow.schedule || row[5],
+                        editingRow.duration || row[6],
+                        editingRow.enablementDate || row[7],
+                        editingRow.disablementDate || row[8],
+                        row[9],
+                    ];
+                }
+                return row;
+            });
+            setData(newData);
+            setOpenModalEditSubject(false);
+            setEditingRow(null);
+        }
+    };
+
 
     if(isDeleteDialog){
         return(
@@ -203,15 +250,25 @@ const Subjects = () => {
     }else if(openModalEditSubject){
         return(
             <>
-                 <div className={modalClasses.under}></div>
+                <div className={modalClasses.under}></div>
                 <div className={modalClasses.container}>
                     <div className={modalClasses.content}>
-                        <p className={classes.titleEnable}>HABILITAR MATERIA</p>
+                        <p className={classes.titleEnable}>EDITAR MATERIA HABILITADA</p>
                         <div className={classes.contentEnableSubject}>
                             <div className={classes.contentLeft}>
                                 <div className={classes.dataEnable}>
-                                    <label className={classes.labelSelect} htmlFor="opciones">Carrera:</label>
-                                    <select className={classes.select} id="opciones" name="opciones" value={career} onChange={(e) => setCareer(e.target.value)}>
+                                    <label className={classes.labelSelect} htmlFor="career">Carrera:</label>
+                                    <select className={classes.select} id="career" name="career" value={editingRow && editingRow.career} onChange={(e) => handleInputChangeEdit('career', e.target.value)}>
+                                        {options.map((option) => (
+                                            <option key={option.value} value={option.value}>
+                                                {option.label}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
+                                <div className={classes.dataEnable}>
+                                    <label className={classes.labelSelect} htmlFor="subject">Materia:</label>
+                                    <select className={classes.select} id="subject" name="opciosubjectnes" value={editingRow && editingRow.subject} onChange={(e) => handleInputChangeEdit('subject', e.target.value)}>
                                         {options.map((option) => (
                                         <option key={option.value} value={option.value}>
                                             {option.label}
@@ -220,18 +277,8 @@ const Subjects = () => {
                                     </select>
                                 </div>
                                 <div className={classes.dataEnable}>
-                                    <label className={classes.labelSelect} htmlFor="opciones">Materia:</label>
-                                    <select className={classes.select} id="opciones" name="opciones" value={subject} onChange={(e) => setSubject(e.target.value)}>
-                                        {options.map((option) => (
-                                        <option key={option.value} value={option.value}>
-                                            {option.label}
-                                        </option>
-                                        ))}
-                                    </select>
-                                </div>
-                                <div className={classes.dataEnable}>
-                                    <label className={classes.labelSelect} htmlFor="opciones">Año:</label>
-                                    <select className={classes.select} id="opciones" name="opciones" value={year} onChange={(e) => setYear(e.target.value)}>
+                                    <label className={classes.labelSelect} htmlFor="year">Año:</label>
+                                    <select className={classes.select} id="year" name="year" value={editingRow && editingRow.year} onChange={(e) => handleInputChangeEdit('year', e.target.value)}>
                                         {options.map((option) => (
                                         <option key={option.value} value={option.value}>
                                             {option.label}
@@ -243,12 +290,12 @@ const Subjects = () => {
                             <div className={classes.contentRight}>
                                 <div className={classes.dataEnable}>
                                     <label className={classes.labelSelect} htmlFor="teacher">Docente:</label>
-                                    <input className={classes.select} type="text" id="teacher" name="teacher" value={teacher} onChange={(e) => setTeacher(e.target.value)}/>
+                                    <input className={classes.select} type="text" id="teacher" name="teacher" value={editingRow && editingRow.teacher} onChange={(e) => handleInputChangeEdit('teacher', e.target.value)}/>
                                 </div>
                                 <div className={classes.intoConentRignt}>
                                     <div className={classes.dataEnableInto}>
-                                        <label className={classes.labelSelect} htmlFor="opciones">Horario:</label>
-                                        <select className={classes.selectInto} id="opciones" name="opciones" value={schedule} onChange={(e) => setSchedule(e.target.value)}>
+                                        <label className={classes.labelSelect} htmlFor="schedule">Horario:</label>
+                                        <select className={classes.selectInto} id="schedule" name="schedule" value={editingRow && editingRow.schedule} onChange={(e) => handleInputChangeEdit('schedule', e.target.value)}>
                                             {options.map((option) => (
                                             <option key={option.value} value={option.value}>
                                                 {option.label}
@@ -257,8 +304,8 @@ const Subjects = () => {
                                         </select>
                                     </div>
                                     <div className={classes.dataEnableInto}>
-                                        <label className={classes.labelSelect} htmlFor="opciones">Duración:</label>
-                                        <select className={classes.selectInto} id="opciones" name="opciones" value={duration} onChange={(e) => setDuration(e.target.value)}>
+                                        <label className={classes.labelSelect} htmlFor="duration">Duración:</label>
+                                        <select className={classes.selectInto} id="duration" name="duration" value={editingRow && editingRow.duration} onChange={(e) => handleInputChangeEdit('duration', e.target.value)}>
                                             {options.map((option) => (
                                             <option key={option.value} value={option.value}>
                                                 {option.label}
@@ -275,16 +322,16 @@ const Subjects = () => {
                             <div className={classes.contentBottom}>
                                 <div className={classes.dataEnableBottom}>
                                     <label className={classes.labelSelectBottom} htmlFor="enablementDate">Fecha de habilitación:</label>
-                                    <input className={classes.selectInto} type="date" id="enablementDate" name="enablementDate" value={enablementDate} onChange={(e) => setEnablementDate(e.target.value)}/>
+                                    <input className={classes.selectInto} type="date" id="enablementDate" name="enablementDate" value={editingRow && editingRow.enablementDate} onChange={(e) => handleInputChangeEdit('enablementDate', e.target.value)}/>
                                 </div>
                                 <div className={classes.dataEnableBottom}>
                                     <label className={classes.labelSelectBottom} htmlFor="disablementDate">Fecha de finalización:</label>
-                                    <input className={classes.selectInto} type="date" id="disablementDate" name="disablementDate" value={disablementDate} onChange={(e) => setDisablementDate(e.target.value)}/>
+                                    <input className={classes.selectInto} type="date" id="disablementDate" name="disablementDate" value={editingRow && editingRow.disablementDate} onChange={(e) => handleInputChangeEdit('disablementDate', e.target.value)}/>
                                 </div>
                             </div>
                             <div className={classes.buttonsEnableSubject}>
-                                <Button icon={enableIcon} text={"Habilitar"} className={classes.iconButton} className2={classes.buttonEnable} onClick={handleSave}/>
-                                <Button icon={cancelIcon} text={"Cancelar"} className={classes.iconButton} className2={classes.buttonCancel} onClick={handleOpenModalEnable}/>
+                                <Button icon={editIcon} text={"Editar"} className={classes.iconButton} className2={classes.buttonEnable} onClick={handleEditSave}/>
+                                <Button icon={cancelIcon} text={"Cancelar"} className={classes.iconButton} className2={classes.buttonCancel} onClick={handleOpenModalEditSubject}/>
                             </div>
                         </div>
                     </div>
@@ -303,8 +350,8 @@ const Subjects = () => {
                     <Button icon={addSubject} text={"Habilitar Materia"} className={classes.iconButton} onClick={handleOpenModalEnable}/>
                 </div>
                 <div className={classes.tableSubject}>
-                    <Table columns={columns} data={data} columnIcon={"Acción"} icon={editSubject} icon2={deleteSubject} icon3={listSubject} className={classes.sizeTable} classNameIcon={classes.sizeIcons} onEdit={handleOpenModalEditSubject} start={1} end={2} onDelete={handleDeleteModal}
-                    //     onAdd={1}
+                    <Table columns={columns} data={data} columnIcon={"Acción"} icon={editSubject} icon2={deleteSubject} icon3={listSubject} className={classes.sizeTable} classNameIcon={classes.sizeIcons} onEdit={handleEditClick} start={1} end={2} onDelete={handleDeleteModal} 
+                    //onAdd={handleEditClick} 
                     />
                 </div>
             </div>

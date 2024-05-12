@@ -1,27 +1,27 @@
 import { makeStyles } from '@material-ui/core';
 
-const useStyles = makeStyles((theme)=>({
+const useStyles = makeStyles((theme) => ({
 
-    content:{
+    content: {
         position: "absolute",
-        width:"82.9vw",
-        height:"87vh",
+        width: "82.9vw",
+        height: "87vh",
         right: "0px",
         bottom: "0px",
-        
+
     },
 
-    text:{
-        fontFamily:"Poppins-Bold",
-        fontSize:"2.7vw",
-        margin:"0vh 0vw 0vh 7vw",
+    text: {
+        fontFamily: "Poppins-Bold",
+        fontSize: "2.7vw",
+        margin: "0vh 0vw 0vh 7vw",
         color: theme.palette.primary.light
     },
-    lineTitle:{
-        width:"78vw",
+    lineTitle: {
+        width: "78vw",
         height: "0.5vh",
-        borderColor: theme.palette.primary.light+"10",
-        backgroundColor: theme.palette.primary.light+"10",
+        borderColor: theme.palette.primary.light + "10",
+        backgroundColor: theme.palette.primary.light + "10",
     },
 
     menu: {
@@ -29,8 +29,8 @@ const useStyles = makeStyles((theme)=>({
         flexDirection: "column",
         justifyContent: "center",
         background: `radial-gradient(circle at 0% 5%, ${theme.palette.primary.light}  , ${theme.palette.primary.contrastText} )`,
-        width:"17vw",
-        height:"85vh",
+        width: "17vw",
+        height: "85vh",
         position: 'absolute',
         bottom: "0vh",
         marginBottom: "0px",
@@ -40,12 +40,12 @@ const useStyles = makeStyles((theme)=>({
     },
     line: {
         width: "90%",
-        borderColor: theme.palette.primary.light+"90",
+        borderColor: theme.palette.primary.light + "90",
         height: "3px",
-        backgroundColor: theme.palette.primary.light+"90",
-        
+        backgroundColor: theme.palette.primary.light + "90",
+
     },
-    top:{
+    top: {
         display: "flex",
         justifyContent: "space-between",
     }

@@ -94,7 +94,8 @@ const useStyles = makeStyles((theme)=>({
         fontSize:"1.1vw",
         borderRadius:"1vw",
         border:"none",
-        paddingInline:"0%"
+        paddingInline:"0%",
+        cursor:"pointer",
     },
     iconButton:{
         width:"50%",

@@ -1,4 +1,4 @@
-import {createTheme, CssBaseline, ThemeProvider} from '@material-ui/core';
+import { createTheme, CssBaseline, ThemeProvider } from '@material-ui/core';
 import Poppins from '../assets/fonts/Poppins-Regular.ttf';
 import Poppinsbold from '../assets/fonts/Poppins-Bold.ttf';
 import PoppinssemiBold from '../assets/fonts/Poppins-SemiBold.ttf';
@@ -24,13 +24,13 @@ const PoppinsSemibold = {
     fontWeight: 600,
     src: `url(${PoppinssemiBold})`
 };
-const MerriweatherRegular ={
+const MerriweatherRegular = {
     fontFamily: "Merriweather-Regular",
     fontStyle: "normal",
     fontWeight: 400,
     src: `url(${Merriweather})`
 };
-const MerriweatherBold ={
+const MerriweatherBold = {
     fontFamily: "Merriweather-Bold",
     fontStyle: "bold",
     fontWeight: 990,
@@ -57,7 +57,7 @@ const theme = createTheme({
     overrides: {
         MuiCssBaseline: {
             "@global": {
-                "@font-face": [PoppinsRegular, PoppinsBold,PoppinsSemibold, MerriweatherRegular, MerriweatherBold]
+                "@font-face": [PoppinsRegular, PoppinsBold, PoppinsSemibold, MerriweatherRegular, MerriweatherBold]
             },
             body: {
                 fontFamily: ["PoppinsRegular"]
@@ -70,8 +70,8 @@ const theme = createTheme({
     }
 });
 
-const Theme = ({children}) => (
+const Theme = ({ children }) => (
     <ThemeProvider theme={theme}>
-        <CssBaseline/> {children} </ThemeProvider>
+        <CssBaseline /> {children} </ThemeProvider>
 );
 export default Theme;

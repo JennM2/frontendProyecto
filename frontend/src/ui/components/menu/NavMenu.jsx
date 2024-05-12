@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useStyles from './NavMenu.style';
 
-const NavMenu = ({ options, selectedOption, setSelectedOption }) => {
+const NavMenu = ({ options, selectedOption, setSelectedOption,className, classNameIcon }) => {
   const classes = useStyles();
   const [selectedSubOption, setSelectedSubOption] = useState('Docentes')
   const handleOptionClick = (option) => {
@@ -11,13 +11,13 @@ const NavMenu = ({ options, selectedOption, setSelectedOption }) => {
   };
 
   return (
-    <ul className={classes.options}>
+    <ul className={className || classes.options}>
       {options.map(option => (
         <li className={classes.list} key={option.name}> 
           <Link to={option.path} className={classes.link}>
             <button className={classes.buttonOption} onClick={() => handleOptionClick(option)} >             
               <div className={`${classes.info} ${selectedOption === option.name && classes.selectedInfo}`}> 
-                <img className={classes.icon} src={option.image} alt={option.name} />
+                <img className={classNameIcon || classes.icon} src={option.image} alt={option.name} />
                 {option.name}
               </div>
             </button>

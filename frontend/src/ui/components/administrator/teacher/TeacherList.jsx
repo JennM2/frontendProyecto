@@ -17,9 +17,9 @@ import alertIcon from '../../../../assets/images/alert.svg';
 import deletIconW from '../../../../assets/icons/deleteW.svg';
 import editIconW from '../../../../assets/icons/editLight.svg';
 
-const TeacherList = ( ) => {
+const TeacherList = () => {
     const adminClasses = adminStyles();
-    const classes =  useStyles();
+    const classes = useStyles();
     const modalClasses = modalStyles();
 
     const [isModalNewOpen, setIsModalNewOpen] = useState(false);
@@ -39,63 +39,63 @@ const TeacherList = ( ) => {
     const [dataAssignName, setDataAssignName] = useState([]);
     const [dataAssignOriginal, setDataAssignOriginal] = useState([
         ['Materia', '2024', 'Carrera', ''],
-        ['Materia','2024', 'Carrera', ''],
-        ['Materia','2024', 'Carrera', ''],
+        ['Materia', '2024', 'Carrera', ''],
+        ['Materia', '2024', 'Carrera', ''],
     ]);
 
     const [dataModal, setDataModal] = useState([
-        ['Fernandez', 'Garcia', 'Juan', 'Carrera','Materia', '2024'],
-        ['Fernandez', 'Garcia', 'Juan', 'Carrera','Materia', '2024'],
-        ['Fernandez', 'Garcia', 'Juan', 'Carrera','Materia', '2024'],
+        ['Fernandez', 'Garcia', 'Juan', 'Carrera', 'Materia', '2024'],
+        ['Fernandez', 'Garcia', 'Juan', 'Carrera', 'Materia', '2024'],
+        ['Fernandez', 'Garcia', 'Juan', 'Carrera', 'Materia', '2024'],
     ]);
     const [dataAssign, setDataAssign] = useState(dataAssignOriginal);
     const [selectedCareer, setSelectedCareer] = useState('');
     const [selectedSubject, setSelectedSubject] = useState('');
     const [selectedYear, setSelectedYear] = useState('');
 
-    const[surnamePTeacher ,setSurnamePTeacher ]=useState('');
-    const[surnameMTeacher , setSurnameMTeacher]=useState('');
-    const[nameTeacher ,setNameTeacher ]=useState('');
-    const[ciTeacher , setCiTeacher]=useState('');
-    const[emailTeacher ,setEmailTeacher ]=useState('');
-    const[phoneTeacher,setPhoneTeacher ]=useState('');
-    const[ userTeacher, setUserTeacher ]=useState('');
-    const[ passwordTeacher,setPasswordTeacher ]=useState('');
+    const [surnamePTeacher, setSurnamePTeacher] = useState('');
+    const [surnameMTeacher, setSurnameMTeacher] = useState('');
+    const [nameTeacher, setNameTeacher] = useState('');
+    const [ciTeacher, setCiTeacher] = useState('');
+    const [emailTeacher, setEmailTeacher] = useState('');
+    const [phoneTeacher, setPhoneTeacher] = useState('');
+    const [userTeacher, setUserTeacher] = useState('');
+    const [passwordTeacher, setPasswordTeacher] = useState('');
 
-    
 
-    const columns = ['ID', 'Paterno', 'Materno', 'Nombre', 'CI', 'Correo','Teléfono','Materias', 'Acción'];
+
+    const columns = ['ID', 'Paterno', 'Materno', 'Nombre', 'CI', 'Correo', 'Teléfono', 'Materias', 'Acción'];
     const [data, setData] = useState([
-        ['8574', 'Fernandez', 'Garcia', 'Juan', '1241526','juan@gmail.com', '78745216','',''],
-        ['8573','Fernande', 'Gracia', 'Jan', '3788455','jan@gmail.com', '78745215','',''],
-        ['8572','Fernan', 'Garia', 'Jani', '6354225','jani@gmail.com', '78745214','',''],
+        ['8574', 'Fernandez', 'Garcia', 'Juan', '1241526', 'juan@gmail.com', '78745216', '', ''],
+        ['8573', 'Fernande', 'Gracia', 'Jan', '3788455', 'jan@gmail.com', '78745215', '', ''],
+        ['8572', 'Fernan', 'Garia', 'Jani', '6354225', 'jani@gmail.com', '78745214', '', ''],
     ]);
-    
-    const columnsModal = ['Paterno', 'Materno', 'Nombre', 'Carrera', 'Materia','Año'];
+
+    const columnsModal = ['Paterno', 'Materno', 'Nombre', 'Carrera', 'Materia', 'Año'];
 
     const fieldsC1 = [
-        { label: 'Apellido Paterno', placeholder: '', type: 'text', id:'surnamePTeacher' },
-        { label: 'Nombre',placeholder: '', type: '', id:'nameTeacher' },
-        { label: 'Correo electrónico', placeholder: 'correo@gmail.com', type: 'email', id:'emailTeacher' },
+        { label: 'Apellido Paterno', placeholder: '', type: 'text', id: 'surnamePTeacher' },
+        { label: 'Nombre', placeholder: '', type: '', id: 'nameTeacher' },
+        { label: 'Correo electrónico', placeholder: 'correo@gmail.com', type: 'email', id: 'emailTeacher' },
     ];
     const fieldsC2 = [
-        { label: 'Apellido Materno', placeholder: '', type: 'text', id:'surnameMTeacher' },
-        { label: 'CI', placeholder: '', type: 'text', id:'ciTeacher' },
-        { label: 'Teléfono', placeholder: '', type: 'text', id:'phoneTeacher' },
+        { label: 'Apellido Materno', placeholder: '', type: 'text', id: 'surnameMTeacher' },
+        { label: 'CI', placeholder: '', type: 'text', id: 'ciTeacher' },
+        { label: 'Teléfono', placeholder: '', type: 'text', id: 'phoneTeacher' },
     ];
-    
-    const options =[
+
+    const options = [
         { value: 'opcion1', label: 'Opción 1' },
         { value: 'opcion2', label: 'Opción 2' },
         { value: 'opcion3', label: 'Opción 3' },
     ];
-    
-    const columnsAssign = ['Materia','Año','Carrera', 'Acción'];
+
+    const columnsAssign = ['Materia', 'Año', 'Carrera', 'Acción'];
 
 
     const filteredData = data.filter(row => row.some(col => col.includes(searchTerm)));
 
-    const handleOpenModalNew = () => { 
+    const handleOpenModalNew = () => {
         setIsModalNewOpen(!isModalNewOpen);
     };
     const handleOpenModalEdit = () => {
@@ -111,7 +111,7 @@ const TeacherList = ( ) => {
     };
     const handleModalAssign = (rowId) => {
         const row = data[rowId];
-        setAssignId(row[0]); 
+        setAssignId(row[0]);
         setAssignSurnameP(row[1]);
         setAssignSurnameM(row[2]);
         setAssignName(row[3]);
@@ -122,14 +122,14 @@ const TeacherList = ( ) => {
         setIdDelete(id);
     };
     const handleFinalDeletion = () => {
-        if(isModalAssingOpen){
-            setDataAssign(dataAssign.filter(row => (row.slice(0, 3).join(' ') )!== idDelete));
+        if (isModalAssingOpen) {
+            setDataAssign(dataAssign.filter(row => (row.slice(0, 3).join(' ')) !== idDelete));
             setIsDeleteDilog(!isDeleteDialog);
             console.log("desde el if");
             console.log(idDelete)
 
-        }else{
-            setData(data.filter(row => (row.slice(1, 4).join(' ') )!== idDelete));
+        } else {
+            setData(data.filter(row => (row.slice(1, 4).join(' ')) !== idDelete));
             setIsDeleteDilog(!isDeleteDialog);
         }
     };
@@ -157,7 +157,7 @@ const TeacherList = ( ) => {
             default:
                 break;
         }
-        
+
     };
     const handleInputChangeEdit = (id, newValue) => {
         const updatedRow = { ...editingRow, [id]: newValue };
@@ -165,8 +165,8 @@ const TeacherList = ( ) => {
         console.log("aqui");
     };
     const handleSave = () => {
-        const ID = Math.round(Math.random()*9000);
-        const newRow = [ID.toString(), surnamePTeacher, surnameMTeacher, nameTeacher,ciTeacher, emailTeacher, phoneTeacher,'',''];
+        const ID = Math.round(Math.random() * 9000);
+        const newRow = [ID.toString(), surnamePTeacher, surnameMTeacher, nameTeacher, ciTeacher, emailTeacher, phoneTeacher, '', ''];
         setData(prevData => [...prevData, newRow]);
         handleOpenModalNew(false);
     };
@@ -194,7 +194,7 @@ const TeacherList = ( ) => {
             setEditingRow(null);
         }
     };
-    
+
     const handleEditClick = (rowId) => {
         const row = data[rowId];
         const editingRow = {
@@ -210,7 +210,7 @@ const TeacherList = ( ) => {
         setEditedId(row[0]);
     };
     const handleAssignSubject = () => {
-       
+
         if (selectedCareer && selectedSubject && selectedYear) {
             const newSubjectAssignment = [selectedSubject, selectedYear, selectedCareer, ''];
             setDataAssignName([selectedSubject, selectedYear, selectedCareer]);
@@ -223,50 +223,50 @@ const TeacherList = ( ) => {
         }
     };
     const handleSaveAssignment = () => {
-        const newRow = [assignSurnameP, assignSurnameM, assignName, dataAssignName[0],dataAssignName[1],dataAssignName[2]];
+        const newRow = [assignSurnameP, assignSurnameM, assignName, dataAssignName[0], dataAssignName[1], dataAssignName[2]];
         setDataModal(prevData => [...prevData, newRow]);
         setIsModalAssingOpen(!isModalAssingOpen);
     };
 
-    if(isDeleteDialog){
-        return(
+    if (isDeleteDialog) {
+        return (
             <>
                 <div className={modalClasses.under}></div>
                 <div className={modalClasses.containerDialog}>
                     <div className={modalClasses.alert}>
                         <img className={modalClasses.iconAlert} src={alertIcon} alt="alertDelete" />
                     </div>
-                    <p className={modalClasses.cuestionAlert}>¿Está seguro de que desea eliminar a <br/> {idDelete}?</p>
+                    <p className={modalClasses.cuestionAlert}>¿Está seguro de que desea eliminar a <br /> {idDelete}?</p>
                     <div className={modalClasses.containerButtons}>
                         <div className={modalClasses.buttonAction}>
-                            <ButtonSM icon={cancelIcon} text="Cancelar" className2={modalClasses.buttonCancel} onClick={handleDeleteModal}/>
+                            <ButtonSM icon={cancelIcon} text="Cancelar" className2={modalClasses.buttonCancel} onClick={handleDeleteModal} />
                         </div>
                         <div className={modalClasses.buttonAction}>
-                            <ButtonSM icon={deletIconW} text="Eliminar" className2={modalClasses.buttonDelete} onClick={handleFinalDeletion}/>
+                            <ButtonSM icon={deletIconW} text="Eliminar" className2={modalClasses.buttonDelete} onClick={handleFinalDeletion} />
                         </div>
                     </div>
                 </div>
             </>
         );
-    }else if(isModalNewOpen){
-        return(
+    } else if (isModalNewOpen) {
+        return (
             <>
                 <div className={modalClasses.under}></div>
                 <div className={modalClasses.container}>
                     <div className={modalClasses.content}>
                         <p className={classes.titlemodalList}>NUEVO DOCENTE</p>
                         <div className={modalClasses.containerInputs}>
-                            <DynamicInputs fields={fieldsC1} className={modalClasses.inputs} onChange={handleInputChange}  />
-                            <DynamicInputs fields={fieldsC2} className={modalClasses.inputs} onChange={handleInputChange}  />
+                            <DynamicInputs fields={fieldsC1} className={modalClasses.inputs} onChange={handleInputChange} />
+                            <DynamicInputs fields={fieldsC2} className={modalClasses.inputs} onChange={handleInputChange} />
                         </div>
                         <div className={modalClasses.contentButtons}>
-                            <Credentials  onUserChange={setUserTeacher} onPasswordChange={setPasswordTeacher}/>
+                            <Credentials onUserChange={setUserTeacher} onPasswordChange={setPasswordTeacher} />
                             <div className={classes.buttonTeacher}>
                                 <div className={classes.buttonS} >
-                                    <ButtonSM  icon={saveIcon} text="Guardar" className={modalClasses.icons} onClick={handleSave}/>
+                                    <ButtonSM icon={saveIcon} text="Guardar" className={modalClasses.icons} onClick={handleSave} />
                                 </div>
                                 <div className={classes.buttonS}>
-                                    <ButtonSM icon={cancelIcon} text="Cancelar" className={modalClasses.icons} onClick={handleOpenModalNew}/>
+                                    <ButtonSM icon={cancelIcon} text="Cancelar" className={modalClasses.icons} onClick={handleOpenModalNew} />
                                 </div>
                             </div>
                         </div>
@@ -275,27 +275,27 @@ const TeacherList = ( ) => {
             </>
         );
     }
-    else if(isModalListOpen){
-        return(
+    else if (isModalListOpen) {
+        return (
             <>
                 <div className={modalClasses.under}></div>
                 <div className={modalClasses.container}>
                     <div className={modalClasses.content}>
                         <p className={classes.titlemodalList}>LISTAS DE ASIGNACION</p>
                         <div className={modalClasses.tableModal}>
-                            <Table columns={columnsModal} data={dataModal}  className={classes.table} className2={classes.tableBody} />
+                            <Table columns={columnsModal} data={dataModal} className={classes.table} className2={classes.tableBody} />
                         </div>
                         <div className={classes.contentButtons}>
-                            <ButtonSM icon={cancelIcon} text="Cancelar" className={modalClasses.icons} onClick={handleOpenModalList}/>
+                            <ButtonSM icon={cancelIcon} text="Cancelar" className={modalClasses.icons} onClick={handleOpenModalList} />
                         </div>
-                        
+
                     </div>
                 </div>
             </>
 
         );
-    }else if(isModalAssingOpen){
-        return(
+    } else if (isModalAssingOpen) {
+        return (
             <>
                 <div className={modalClasses.under}></div>
                 <div className={modalClasses.container}>
@@ -307,7 +307,7 @@ const TeacherList = ( ) => {
                                 <p>ID: {assignId}</p>
                             </div>
                         </div>
-                        <hr className={classes.lineEnable}/>
+                        <hr className={classes.lineEnable} />
                         <div className={classes.containerEnable}>
                             <div className={classes.containerAssign}>
                                 <p className={classes.subtitleAssign}>ASIGNAR MATERIAS</p>
@@ -315,9 +315,9 @@ const TeacherList = ( ) => {
                                     <label className={classes.labelSelect} htmlFor="opciones">Carreras:</label>
                                     <select className={classes.select} id="opciones" name="opciones" value={selectedCareer} onChange={(e) => setSelectedCareer(e.target.value)}>
                                         {options.map((option) => (
-                                        <option key={option.value} value={option.value}>
-                                            {option.label}
-                                        </option>
+                                            <option key={option.value} value={option.value}>
+                                                {option.label}
+                                            </option>
                                         ))}
                                     </select>
                                 </div>
@@ -325,9 +325,9 @@ const TeacherList = ( ) => {
                                     <label className={classes.labelSelect} htmlFor="opciones">Materias:</label>
                                     <select className={classes.select} id="opciones" name="opciones" value={selectedSubject} onChange={(e) => setSelectedSubject(e.target.value)}>
                                         {options.map((option) => (
-                                        <option key={option.value} value={option.value}>
-                                            {option.label}
-                                        </option>
+                                            <option key={option.value} value={option.value}>
+                                                {option.label}
+                                            </option>
                                         ))}
                                     </select>
                                 </div>
@@ -336,9 +336,9 @@ const TeacherList = ( ) => {
                                         <label className={classes.labelSelect} htmlFor="opciones">Año:</label>
                                         <select className={classes.select} id="opciones" name="opciones" value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)}>
                                             {options.map((option) => (
-                                            <option key={option.value} value={option.value}>
-                                                {option.label}
-                                            </option>
+                                                <option key={option.value} value={option.value}>
+                                                    {option.label}
+                                                </option>
                                             ))}
                                         </select>
                                     </div>
@@ -349,15 +349,15 @@ const TeacherList = ( ) => {
                             </div>
                             <div className={classes.containerSubjectAssign}>
                                 <p className={classes.subtitleAssign}>MATERIAS ASIGNADAS</p>
-                                <Table columns={columnsAssign} data={dataAssign} columnIcon={"Acción"} icon2={deleteTeacher} className={classes.tableSubjects} className2={classes.bodyTable} onDelete={handleDeleteModal}  start={0} end={3}/>
+                                <Table columns={columnsAssign} data={dataAssign} columnIcon={"Acción"} icon2={deleteTeacher} className={classes.tableSubjects} className2={classes.bodyTable} onDelete={handleDeleteModal} start={0} end={3} />
                                 <div className={classes.butonsActions}>
 
                                     <div className={classes.buttons}>
-                                        <ButtonSM icon={saveIcon} text="Guardar"  className={classes.iconTeacher} onClick={handleSaveAssignment}/>
+                                        <ButtonSM icon={saveIcon} text="Guardar" className={classes.iconTeacher} onClick={handleSaveAssignment} />
                                     </div>
-                                    
+
                                     <div className={classes.buttons}>
-                                        <ButtonSM icon={cancelIcon} text="Cancelar" className={classes.iconTeacher}  onClick={handleCloseModalAssign}/>
+                                        <ButtonSM icon={cancelIcon} text="Cancelar" className={classes.iconTeacher} onClick={handleCloseModalAssign} />
                                     </div>
                                 </div>
                             </div>
@@ -367,26 +367,26 @@ const TeacherList = ( ) => {
                 </div>
             </>
         );
-        
-    }else if(isModalEditOpen){
-        return(
+
+    } else if (isModalEditOpen) {
+        return (
             <>
                 <div className={modalClasses.under}></div>
                 <div className={modalClasses.container}>
                     <div className={modalClasses.content}>
                         <p className={classes.titlemodalList}>EDITAR DOCENTE</p>
                         <div className={modalClasses.containerInputs}>
-                            <DynamicInputs fields={fieldsC1} className={modalClasses.inputs} onChange={handleInputChangeEdit}  values={editingRow}/>
-                            <DynamicInputs fields={fieldsC2} className={modalClasses.inputs} onChange={handleInputChangeEdit} values={editingRow}/>
+                            <DynamicInputs fields={fieldsC1} className={modalClasses.inputs} onChange={handleInputChangeEdit} values={editingRow} />
+                            <DynamicInputs fields={fieldsC2} className={modalClasses.inputs} onChange={handleInputChangeEdit} values={editingRow} />
                         </div>
                         <div className={modalClasses.contentButtons}>
-                            <Credentials  onUserChange={setUserTeacher} onPasswordChange={setPasswordTeacher}/>
+                            <Credentials onUserChange={setUserTeacher} onPasswordChange={setPasswordTeacher} />
                             <div className={classes.buttonTeacher}>
                                 <div className={classes.buttonS} >
-                                    <ButtonSM  icon={editIconW} text="Editar" className={modalClasses.icons} onClick={handleEditSave}/>
+                                    <ButtonSM icon={editIconW} text="Editar" className={modalClasses.icons} onClick={handleEditSave} />
                                 </div>
                                 <div className={classes.buttonS}>
-                                    <ButtonSM icon={cancelIcon} text="Cancelar" className={modalClasses.icons} onClick={handleOpenModalEdit}/>
+                                    <ButtonSM icon={cancelIcon} text="Cancelar" className={modalClasses.icons} onClick={handleOpenModalEdit} />
                                 </div>
                             </div>
                         </div>
@@ -395,26 +395,26 @@ const TeacherList = ( ) => {
             </>
         );
     }
-    else{
-        return(
+    else {
+        return (
             <div className={adminClasses.content} >
                 <div className={classes.tittleTeacher}>
                     <p className={adminClasses.text}>LISTA DE DOCENTES</p>
                     <hr className={adminClasses.lineTitle} />
                 </div>
                 <div className={classes.headTeachers}>
-                    <Search text={"Buscar"} onSearch={setSearchTerm}/>
+                    <Search text={"Buscar"} onSearch={setSearchTerm} />
                     <div className={classes.buttonsTech}>
                         <div>
-                            <ButtonSM icon = {listIcon} text= "Lista de asignación" className={classes.iconTeacher} className2={classes.buttonList} onClick={handleOpenModalList}/>
+                            <ButtonSM icon={listIcon} text="Lista de asignación" className={classes.iconTeacher} className2={classes.buttonList} onClick={handleOpenModalList} />
                         </div>
                         <div className={classes.button}>
-                            <ButtonSM icon = {newTeacher} text= "Nuevo" className={classes.iconTeacher} onClick={handleOpenModalNew}/>
+                            <ButtonSM icon={newTeacher} text="Nuevo" className={classes.iconTeacher} onClick={handleOpenModalNew} />
                         </div>
                     </div>
                 </div>
                 <div className={classes.tableTch}>
-                    <Table columns={columns} data={filteredData} columnIcon={"Acción"}   icon={editTeacher}  icon2={deleteTeacher} textLink="Asignar" columnAction={"Materias"}  onClick={(rowId) => handleModalAssign(rowId)} onDelete={handleDeleteModal}  start={1} end={4} onEdit={handleEditClick} />           
+                    <Table columns={columns} data={filteredData} columnIcon={"Acción"} icon={editTeacher} icon2={deleteTeacher} textLink="Asignar" columnAction={"Materias"} onClick={(rowId) => handleModalAssign(rowId)} onDelete={handleDeleteModal} start={1} end={4} onEdit={handleEditClick} />
                 </div>
             </div>
         );

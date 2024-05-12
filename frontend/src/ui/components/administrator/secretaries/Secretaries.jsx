@@ -35,7 +35,7 @@ const Secretaries = () => {
     const [userSecretary, setUserSecretary] = useState('');
     const [passwordSecretary, setPasswordSecretary] = useState('');
 
-    const handleNewClick = () =>{
+    const handleNewClick = () => {
         setIsClick(!isClick);
     }
 
@@ -43,24 +43,24 @@ const Secretaries = () => {
         switch (id) {
             case 'surnamePaternalSecretary':
                 setSurnamePaternalSecretary(newValue);
-            break;
+                break;
             case 'surnameMaternalSecretary':
                 setSurnameMaternalSecretary(newValue);
-            break;
+                break;
             case 'nameSecretary':
                 setNameSecretary(newValue);
-            break;
+                break;
             case 'emailSecretary':
                 setEmailSecretary(newValue);
-            break;
+                break;
             case 'ciSecretary':
                 setCiSecreatry(newValue);
-            break;
+                break;
             case 'phoneSecretary':
                 setPhoneSecretary(newValue);
-            break;
-          default:
-            break;
+                break;
+            default:
+                break;
         }
     };
     const handleInputChangeEdit = (id, newValue) => {
@@ -68,18 +68,18 @@ const Secretaries = () => {
         setEditingRow(updatedRow);
     };
     const handleSave = () => {
-        const ID = Math.round(Math.random()*9000);
-        const newRow = [ID.toString(),userSecretary, surnamePaternalSecretary, surnameMaternalSecretary, nameSecretary,ciSecretary,     emailSecretary, phoneSecretary,''];
+        const ID = Math.round(Math.random() * 9000);
+        const newRow = [ID.toString(), userSecretary, surnamePaternalSecretary, surnameMaternalSecretary, nameSecretary, ciSecretary, emailSecretary, phoneSecretary, ''];
         setData(prevData => [...prevData, newRow]);
         setIsClick(false);
-      };
+    };
 
     const handleDeleteModal = (id) => {
         setIsDeleteDilog(!isDeleteDialog);
         setIdDelete(id);
     };
     const handleFinalDeletion = () => {
-        setData(data.filter(row => (row.slice(2, 5).join(' ') )!== idDelete));
+        setData(data.filter(row => (row.slice(2, 5).join(' ')) !== idDelete));
         setIsDeleteDilog(!isDeleteDialog);
     };
     const handleOpenModalEdit = () => {
@@ -123,46 +123,46 @@ const Secretaries = () => {
             setEditingRow(null);
         }
     };
-    
-    const columns = ['ID', 'Usuario', 'Paterno', 'Materno', 'Nombre', 'CI', 'Correo', 'Teléfono','Acción'];
+
+    const columns = ['ID', 'Usuario', 'Paterno', 'Materno', 'Nombre', 'CI', 'Correo', 'Teléfono', 'Acción'];
     const [data, setData] = useState([
-        ['8574', 'Usuario', 'Fernandez', 'Garcia', 'Juan', '12345678', 'juan@gmail.com','78745262',''],
-        ['8573', 'Usuario', 'Garcia', 'Marquez', 'Juana', '910111213', 'juana@gmail.com','78745263',''],
-        ['8572', 'Usuario', 'Marquez', 'Juares', 'Juanito', '14151617', 'juanito@gmail.com','78745265',''],
+        ['8574', 'Usuario', 'Fernandez', 'Garcia', 'Juan', '12345678', 'juan@gmail.com', '78745262', ''],
+        ['8573', 'Usuario', 'Garcia', 'Marquez', 'Juana', '910111213', 'juana@gmail.com', '78745263', ''],
+        ['8572', 'Usuario', 'Marquez', 'Juares', 'Juanito', '14151617', 'juanito@gmail.com', '78745265', ''],
     ]);
 
     const fieldsC1 = [
-        { label: 'Apellido Paterno', placeholder: '', type: 'text', id:'surnamePaternalSecretary' },
-        { label: 'Nombre',placeholder: '', type: '', id:'nameSecretary' },
-        { label: 'Correo electrónico', placeholder: 'correo@gmail.com', type: 'email', id:'emailSecretary' },
+        { label: 'Apellido Paterno', placeholder: '', type: 'text', id: 'surnamePaternalSecretary' },
+        { label: 'Nombre', placeholder: '', type: '', id: 'nameSecretary' },
+        { label: 'Correo electrónico', placeholder: 'correo@gmail.com', type: 'email', id: 'emailSecretary' },
     ];
     const fieldsC2 = [
-        { label: 'Apellido Materno', placeholder: '', type: 'text', id:'surnameMaternalSecretary' },
-        { label: 'CI', placeholder: '', type: 'text', id:'ciSecretary' },
-        { label: 'Teléfono', placeholder: '', type: 'text', id:'phoneSecretary' },
+        { label: 'Apellido Materno', placeholder: '', type: 'text', id: 'surnameMaternalSecretary' },
+        { label: 'CI', placeholder: '', type: 'text', id: 'ciSecretary' },
+        { label: 'Teléfono', placeholder: '', type: 'text', id: 'phoneSecretary' },
     ];
-    
 
-    if(isClick){
-        return(
+
+    if (isClick) {
+        return (
             <>
                 <div className={modalClasses.under}></div>
                 <div className={modalClasses.container}>
                     <div className={modalClasses.content}>
                         <p>NUEVO SECRETARIO</p>
                         <div className={modalClasses.containerInputs}>
-                        <DynamicInputs fields={fieldsC1} className={modalClasses.inputs} onChange={handleInputChange} />
-                        <DynamicInputs fields={fieldsC2} className={modalClasses.inputs} onChange={handleInputChange} />
+                            <DynamicInputs fields={fieldsC1} className={modalClasses.inputs} onChange={handleInputChange} />
+                            <DynamicInputs fields={fieldsC2} className={modalClasses.inputs} onChange={handleInputChange} />
 
                         </div>
                         <div className={modalClasses.contentButtons}>
-                            <Credentials onUserChange={setUserSecretary} onPasswordChange={setPasswordSecretary}/>
+                            <Credentials onUserChange={setUserSecretary} onPasswordChange={setPasswordSecretary} />
                             <div className={classes.buttonSecretary}>
                                 <div className={classes.buttonS} >
-                                    <ButtonSM  icon={saveIcon} text="Guardar" className={modalClasses.icons} onClick={handleSave}/>
+                                    <ButtonSM icon={saveIcon} text="Guardar" className={modalClasses.icons} onClick={handleSave} />
                                 </div>
                                 <div className={classes.buttonS}>
-                                    <ButtonSM icon={cancelIcon} text="Cancelar" className={modalClasses.icons} onClick={handleNewClick}/>
+                                    <ButtonSM icon={cancelIcon} text="Cancelar" className={modalClasses.icons} onClick={handleNewClick} />
                                 </div>
                             </div>
                         </div>
@@ -170,46 +170,46 @@ const Secretaries = () => {
                 </div>
             </>
         );
-    }else if(isDeleteDialog){
-        return(
+    } else if (isDeleteDialog) {
+        return (
             <>
                 <div className={modalClasses.under}></div>
                 <div className={modalClasses.containerDialog}>
                     <div className={modalClasses.alert}>
                         <img className={modalClasses.iconAlert} src={alertIcon} alt="alertDelete" />
                     </div>
-                    <p className={modalClasses.cuestionAlert}>¿Está seguro de que desea eliminar a <br/> {idDelete}?</p>
+                    <p className={modalClasses.cuestionAlert}>¿Está seguro de que desea eliminar a <br /> {idDelete}?</p>
                     <div className={modalClasses.containerButtons}>
                         <div className={modalClasses.buttonAction}>
-                            <ButtonSM icon={cancelIcon} text="Cancelar" className2={modalClasses.buttonCancel} onClick={handleDeleteModal}/>
+                            <ButtonSM icon={cancelIcon} text="Cancelar" className2={modalClasses.buttonCancel} onClick={handleDeleteModal} />
                         </div>
                         <div className={modalClasses.buttonAction}>
-                            <ButtonSM icon={deletIconW} text="Eliminar" className2={modalClasses.buttonDelete} onClick={handleFinalDeletion}/>
+                            <ButtonSM icon={deletIconW} text="Eliminar" className2={modalClasses.buttonDelete} onClick={handleFinalDeletion} />
                         </div>
                     </div>
                 </div>
             </>
         );
-    }else if (isModalEditOpen){
-        return(
+    } else if (isModalEditOpen) {
+        return (
             <>
                 <div className={modalClasses.under}></div>
                 <div className={modalClasses.container}>
                     <div className={modalClasses.content}>
                         <p>EDITAR SECRETARIO</p>
                         <div className={modalClasses.containerInputs}>
-                        <DynamicInputs fields={fieldsC1} className={modalClasses.inputs} onChange={handleInputChangeEdit} values={editingRow}/>
-                        <DynamicInputs fields={fieldsC2} className={modalClasses.inputs} onChange={handleInputChangeEdit} values={editingRow}/>
+                            <DynamicInputs fields={fieldsC1} className={modalClasses.inputs} onChange={handleInputChangeEdit} values={editingRow} />
+                            <DynamicInputs fields={fieldsC2} className={modalClasses.inputs} onChange={handleInputChangeEdit} values={editingRow} />
 
                         </div>
                         <div className={modalClasses.contentButtons}>
-                            <Credentials onUserChange={setUserSecretary} onPasswordChange={setPasswordSecretary}/>
+                            <Credentials onUserChange={setUserSecretary} onPasswordChange={setPasswordSecretary} />
                             <div className={classes.buttonSecretary}>
                                 <div className={classes.buttonS} >
-                                    <ButtonSM  icon={editIconW} text="Editar" className={modalClasses.icons} onClick={handleEditSave} />
+                                    <ButtonSM icon={editIconW} text="Editar" className={modalClasses.icons} onClick={handleEditSave} />
                                 </div>
                                 <div className={classes.buttonS}>
-                                    <ButtonSM icon={cancelIcon} text="Cancelar" className={modalClasses.icons} onClick={handleOpenModalEdit}/>
+                                    <ButtonSM icon={cancelIcon} text="Cancelar" className={modalClasses.icons} onClick={handleOpenModalEdit} />
                                 </div>
                             </div>
                         </div>
@@ -218,8 +218,8 @@ const Secretaries = () => {
             </>
         );
     }
-    else{            
-        return(
+    else {
+        return (
             <div className={adminClasses.content} >
                 <div className={classes.title}>
                     <p className={adminClasses.text}>SECRETARIOS</p>
@@ -230,7 +230,7 @@ const Secretaries = () => {
                         <ButtonSM icon={newSecretary} text="Nuevo" className={classes.iconSecretaries} />
                     </div>
                     <div className={classes.tableSecretaries}>
-                        <Table columns={columns} data={data} columnIcon={"Acción"} icon={editIcon} icon2={deleteIcon} onDelete={handleDeleteModal} start={2} end={5} onEdit={handleEditClick}/>
+                        <Table columns={columns} data={data} columnIcon={"Acción"} icon={editIcon} icon2={deleteIcon} onDelete={handleDeleteModal} start={2} end={5} onEdit={handleEditClick} />
                     </div>
                 </div>
             </div>
